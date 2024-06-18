@@ -1,0 +1,459 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #035cdc;
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.navbar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    display: inline;
+    margin-left: 1em;
+}
+
+.navbar-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.2em 0.5em;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+    color: #035cdc;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.navbar-menu li.logout a {
+    color: #ff2400;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon i {
+    color: white;
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+    padding: 0.2em 0.5em;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-icon i:hover {
+    color: #035cdc;
+    background-color: white;
+    border-radius: 5px;
+}
+
+@media (max-width: 828px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        width: 40%;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #035cdc;
+        border-radius: 10px;
+    }
+
+    .navbar-menu li {
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar-container {
+        position: relative;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .header-content {
+        margin-top: 15%;
+    }
+}
+
+.main-content {
+    padding: 2em;
+    margin-top: 60px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.table-container {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-container th,
+.table-container td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-container th {
+    background-color: #035cdc;
+    color: white;
+}
+
+/* Button styles */
+.btn-update,
+.btn-delete {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.btn-update {
+    background-color: #4caf50; /* Green */
+    transition: background-color 0.3s ease;
+}
+
+.btn-update:hover {
+    background-color: #45a049;
+}
+
+.btn-delete {
+    background-color: #f44336; /* Red */
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+
+.delete-form {
+    display: inline-block;
+    margin: 0;
+}
+
+td .btn-update,
+td .btn-delete {
+    display: inline-block;
+    margin: 2px 0;
+}
+
+@media (max-width: 768px) {
+    .btn-update,
+    .btn-delete {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+}
+
+.form-container,
+.form-popup {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-container select,
+.form-popup select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 1em;
+    color: #333;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path d="M6 9l6-6 6 6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+.form-container select:focus,
+.form-popup select:focus {
+    border-color: #035cdc;
+    box-shadow: 0 0 5px rgba(3, 92, 220, 0.5);
+    outline: none;
+}
+
+.form-container option,
+.form-popup option {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.form-container h3,
+.form-popup h3 {
+    margin-bottom: 20px;
+}
+
+.form-container label,
+.form-popup label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-container input,
+.form-popup input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-container button,
+.form-popup button {
+    padding: 10px 20px;
+    background-color: #035cdc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover,
+.form-popup button:hover {
+    background-color: #004bb5;
+}
+
+.nominal-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nominal-wrapper .currency {
+    position: absolute;
+    left: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+.nominal-wrapper input {
+    margin-left: 40px;
+    padding-left: 30px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1em;
+    color: #333;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 868px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+    .table-container,
+    .form-container,
+    .form-popup {
+        margin-right: 0;
+        margin-top: 20px;
+    }
+}
+
+footer {
+    background-color: #212121;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 100px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li.logout a {
+    color: #ff2400;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-section h4 {
+    margin: 10px 0;
+}
+
+.footer-section p,
+.footer-section a {
+    margin: 5px 0;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+}
+
+.app-buttons a img {
+    max-width: 150px;
+    margin: 10px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background-color: #181818;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 10px;
+    }
+
+    .footer-section {
+        flex-basis: 100%;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .footer-section ul li {
+        margin: 8px 0;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        padding: 8px;
+    }
+
+    .social-icons img {
+        width: 18px;
+        height: 18px;
+    }
+}
